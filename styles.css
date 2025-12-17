@@ -1,0 +1,729 @@
+/* ========================================
+   CSS Variables & Design System
+   ======================================== */
+:root {
+    /* Color Palette - Traditional Japanese Aesthetics */
+    --color-kinari: #F5F1E8;           /* 生成り - Natural beige */
+    --color-sumi: #2C2C2C;             /* 墨色 - Ink black */
+    --color-tsuchikabe: #A89F91;       /* 土壁 - Earth wall gray */
+    --color-shikkui: #E8E3D8;          /* 漆喰 - Plaster white */
+    --color-shu: #C73E3A;              /* 朱色 - Vermillion */
+    --color-kon: #223A5E;              /* 紺色 - Deep indigo */
+    --color-moegi: #7BA23F;            /* 萌葱色 - Onion green */
+    --color-suoh: #8C4841;             /* 蘇芳 - Sappanwood */
+    
+    /* Functional Colors */
+    --color-bg-primary: var(--color-kinari);
+    --color-bg-secondary: var(--color-shikkui);
+    --color-text-primary: var(--color-sumi);
+    --color-text-secondary: var(--color-tsuchikabe);
+    --color-accent: var(--color-shu);
+    --color-accent-dark: var(--color-suoh);
+    
+    /* Typography */
+    --font-ja: 'Noto Serif JP', serif;
+    --font-en: 'Cormorant Garamond', serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    --spacing-xxl: 8rem;
+    
+    /* Layout */
+    --container-max: 1200px;
+    --header-height: 80px;
+    
+    /* Transitions */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s ease;
+}
+
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-ja);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Washi Paper Texture Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/washi_texture.png');
+    background-size: 400px;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ========================================
+   Container
+   ======================================== */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========================================
+   Header & Navigation
+   ======================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(245, 241, 232, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(168, 159, 145, 0.2);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.nav {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    position: relative;
+}
+
+.brand-ja {
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.brand-en {
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-menu a {
+    font-family: var(--font-en);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent);
+    transition: width 0.4s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   Hero Section
+   ======================================== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(245, 241, 232, 0.3) 0%,
+        rgba(245, 241, 232, 0.7) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: var(--spacing-md);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-title-ja {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-sumi);
+}
+
+.hero-subtitle-en {
+    font-family: var(--font-en);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-subtitle-en-small {
+    font-family: var(--font-en);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.08em;
+    color: var(--color-tsuchikabe);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    animation: fadeIn 1.5s ease-out 0.5s both;
+}
+
+.scroll-indicator span {
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(
+        to bottom,
+        var(--color-text-secondary),
+        transparent
+    );
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Section Styles
+   ======================================== */
+.section {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title-ja {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-sumi);
+}
+
+.section-title-en {
+    font-family: var(--font-en);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Concept Section
+   ======================================== */
+.concept-section {
+    background: linear-gradient(
+        to bottom,
+        var(--color-bg-primary) 0%,
+        var(--color-shikkui) 100%
+    );
+}
+
+.concept-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.concept-block {
+    position: relative;
+    padding-left: var(--spacing-lg);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+}
+
+.concept-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.concept-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-en);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.concept-heading {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-sumi);
+}
+
+.concept-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+}
+
+/* ========================================
+   Pillars Section
+   ======================================== */
+.pillars-section {
+    background: var(--color-bg-primary);
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.pillar-card {
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(44, 44, 44, 0.08);
+    transition: var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.pillar-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(44, 44, 44, 0.15);
+}
+
+.pillar-image-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pillar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.pillar-card:hover .pillar-image {
+    transform: scale(1.05);
+}
+
+.pillar-content {
+    padding: var(--spacing-lg);
+}
+
+.pillar-title-en {
+    font-family: var(--font-en);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.pillar-title-ja {
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-sumi);
+}
+
+.pillar-description {
+    font-size: 1rem;
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.pillar-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.pillar-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: var(--color-text-secondary);
+}
+
+.pillar-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+/* ========================================
+   Profile Section
+   ======================================== */
+.profile-section {
+    background: linear-gradient(
+        to bottom,
+        var(--color-shikkui) 0%,
+        var(--color-bg-primary) 100%
+    );
+}
+
+.profile-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-info {
+    background: white;
+    padding: var(--spacing-xl);
+    border-radius: 2px;
+    box-shadow: 0 4px 30px rgba(44, 44, 44, 0.1);
+}
+
+.profile-name-ja {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-sumi);
+}
+
+.profile-name-en {
+    font-family: var(--font-en);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(168, 159, 145, 0.2);
+}
+
+.profile-credentials p {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+}
+
+.profile-bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.profile-bio p {
+    font-size: 1.1rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--color-text-primary);
+}
+
+.profile-links {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-accent);
+    color: white;
+    border-radius: 2px;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    transition: var(--transition-fast);
+}
+
+.profile-link:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(199, 62, 58, 0.3);
+}
+
+.link-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+.footer {
+    background: var(--color-sumi);
+    color: var(--color-kinari);
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-brand {
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-title-ja {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-title-en {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+    margin-top: var(--spacing-md);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scrollLine {
+    0%, 100% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+        --spacing-xxl: 5rem;
+    }
+    
+    .nav-menu {
+        gap: var(--spacing-md);
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem;
+    }
+    
+    .hero-title-ja br {
+        display: none;
+    }
+    
+    .concept-block {
+        padding-left: var(--spacing-md);
+    }
+    
+    .concept-number {
+        font-size: 2rem;
+    }
+    
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-info {
+        padding: var(--spacing-lg);
+    }
+    
+    .profile-bio {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-ja {
+        font-size: 1rem;
+    }
+    
+    .brand-en {
+        font-size: 0.65rem;
+    }
+    
+    .nav-menu {
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-menu a {
+        font-size: 0.75rem;
+    }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
