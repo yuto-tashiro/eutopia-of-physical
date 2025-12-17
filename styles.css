@@ -234,13 +234,12 @@ ul {
 }
 
 .hero-title-ja {
-    font-size: clamp(1.5rem, 5vw, 4.5rem);
+    font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: 400;
     letter-spacing: 0.15em;
     line-height: 1.4;
     margin-bottom: var(--spacing-md);
     color: var(--color-sumi);
-    white-space: nowrap;
 }
 
 .hero-subtitle-en {
