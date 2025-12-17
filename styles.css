@@ -3,15 +3,23 @@
    ======================================== */
 :root {
     /* Color Palette - Traditional Japanese Aesthetics */
-    --color-kinari: #F5F1E8;           /* 生成り - Natural beige */
-    --color-sumi: #2C2C2C;             /* 墨色 - Ink black */
-    --color-tsuchikabe: #A89F91;       /* 土壁 - Earth wall gray */
-    --color-shikkui: #E8E3D8;          /* 漆喰 - Plaster white */
-    --color-shu: #C73E3A;              /* 朱色 - Vermillion */
-    --color-kon: #223A5E;              /* 紺色 - Deep indigo */
-    --color-moegi: #7BA23F;            /* 萌葱色 - Onion green */
-    --color-suoh: #8C4841;             /* 蘇芳 - Sappanwood */
-    
+    --color-kinari: #F5F1E8;
+    /* 生成り - Natural beige */
+    --color-sumi: #2C2C2C;
+    /* 墨色 - Ink black */
+    --color-tsuchikabe: #A89F91;
+    /* 土壁 - Earth wall gray */
+    --color-shikkui: #E8E3D8;
+    /* 漆喰 - Plaster white */
+    --color-shu: #C73E3A;
+    /* 朱色 - Vermillion */
+    --color-kon: #223A5E;
+    /* 紺色 - Deep indigo */
+    --color-moegi: #7BA23F;
+    /* 萌葱色 - Onion green */
+    --color-suoh: #8C4841;
+    /* 蘇芳 - Sappanwood */
+
     /* Functional Colors */
     --color-bg-primary: var(--color-kinari);
     --color-bg-secondary: var(--color-shikkui);
@@ -19,11 +27,11 @@
     --color-text-secondary: var(--color-tsuchikabe);
     --color-accent: var(--color-shu);
     --color-accent-dark: var(--color-suoh);
-    
+
     /* Typography */
     --font-ja: 'Noto Serif JP', serif;
     --font-en: 'Cormorant Garamond', serif;
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -31,11 +39,11 @@
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
     --spacing-xxl: 8rem;
-    
+
     /* Layout */
     --container-max: 1200px;
     --header-height: 80px;
-    
+
     /* Transitions */
     --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.3s ease;
@@ -212,11 +220,9 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(245, 241, 232, 0.3) 0%,
-        rgba(245, 241, 232, 0.7) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(245, 241, 232, 0.3) 0%,
+            rgba(245, 241, 232, 0.7) 100%);
 }
 
 .hero-content {
@@ -278,11 +284,9 @@ ul {
 .scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(
-        to bottom,
-        var(--color-text-secondary),
-        transparent
-    );
+    background: linear-gradient(to bottom,
+            var(--color-text-secondary),
+            transparent);
     animation: scrollLine 2s ease-in-out infinite;
 }
 
@@ -320,11 +324,9 @@ ul {
    Concept Section
    ======================================== */
 .concept-section {
-    background: linear-gradient(
-        to bottom,
-        var(--color-bg-primary) 0%,
-        var(--color-shikkui) 100%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-bg-primary) 0%,
+            var(--color-shikkui) 100%);
 }
 
 .concept-content {
@@ -481,11 +483,9 @@ ul {
    Profile Section
    ======================================== */
 .profile-section {
-    background: linear-gradient(
-        to bottom,
-        var(--color-shikkui) 0%,
-        var(--color-bg-primary) 100%
-    );
+    background: linear-gradient(to bottom,
+            var(--color-shikkui) 0%,
+            var(--color-bg-primary) 100%);
 }
 
 .profile-content {
@@ -626,6 +626,7 @@ ul {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -636,16 +637,20 @@ ul {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
 
 @keyframes scrollLine {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scaleY(0);
         transform-origin: top;
     }
+
     50% {
         transform: scaleY(1);
         transform-origin: top;
@@ -662,55 +667,96 @@ ul {
         --spacing-xl: 4rem;
         --spacing-xxl: 5rem;
     }
-    
+
     .nav-menu {
         gap: var(--spacing-md);
     }
-    
+
     .nav-menu a {
         font-size: 0.85rem;
     }
-    
+
     .hero-title-ja br {
         display: none;
     }
-    
+
     .concept-block {
         padding-left: var(--spacing-md);
     }
-    
+
     .concept-number {
         font-size: 2rem;
     }
-    
+
     .pillars-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .profile-info {
         padding: var(--spacing-lg);
     }
-    
+
     .profile-bio {
         text-align: center;
     }
 }
 
 @media (max-width: 480px) {
+    :root {
+        --header-height: 65px;
+    }
+
+    .nav {
+        padding: 0 var(--spacing-sm);
+    }
+
     .brand-ja {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
     }
-    
+
     .brand-en {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
     }
-    
+
     .nav-menu {
         gap: var(--spacing-sm);
     }
-    
+
     .nav-menu a {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    .nav {
+        padding: 0 0.75rem;
+    }
+
+    .brand-ja {
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+    }
+
+    .brand-en {
+        font-size: 0.55rem;
+        letter-spacing: 0.1em;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
     }
 }
 
