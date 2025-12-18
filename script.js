@@ -47,11 +47,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        
+
         if (target) {
             const headerHeight = document.querySelector('.header').offsetHeight;
             const targetPosition = target.offsetTop - headerHeight;
-            
+
             window.scrollTo({
                 top: targetPosition,
                 behavior: 'smooth'
@@ -68,14 +68,14 @@ const header = document.querySelector('.header');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     // Add shadow on scroll
     if (currentScroll > 50) {
         header.style.boxShadow = '0 2px 20px rgba(44, 44, 44, 0.08)';
     } else {
         header.style.boxShadow = 'none';
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -88,7 +88,7 @@ if (heroImage) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallaxSpeed = 0.5;
-        
+
         if (scrolled < window.innerHeight) {
             heroImage.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
         }
@@ -102,7 +102,7 @@ function updateScrollProgress() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
-    
+
     // You can add a progress bar element if desired
     // document.getElementById('progressBar').style.width = scrolled + '%';
 }
@@ -126,3 +126,66 @@ if (prefersReducedMotion.matches) {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+
+// ========================================
+// Language Switching
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const defaultLang = 'ja';
+
+    // Initialize language from localStorage or default
+    function initLanguage() {
+        const savedLang = localStorage.getItem('preferredLanguage') || defaultLang;
+        setLanguage(savedLang);
+    }
+
+    // Set language and update UI
+    function setLanguage(lang) {
+        // Update button states
+        langButtons.forEach(btn => {
+            if (btn.dataset.lang === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        // Hide all language content elements (but NOT buttons)
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            // Skip buttons - they should always be visible
+            if (!el.classList.contains('lang-btn')) {
+                el.style.display = 'none';
+                el.style.opacity = '0';
+            }
+        });
+
+        // Show elements for selected language with fade-in
+        setTimeout(() => {
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                // Skip buttons - they're already visible
+                if (!el.classList.contains('lang-btn')) {
+                    el.style.display = '';
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                    }, 10);
+                }
+            });
+        }, 150);
+
+        // Save preference
+        localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Add click handlers to language buttons
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.dataset.lang;
+            setLanguage(lang);
+        });
+    });
+
+    // Initialize on page load
+    initLanguage();
+});
+

@@ -141,6 +141,12 @@ ul {
 
 .nav-brand {
     position: relative;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.nav-brand:hover {
+    opacity: 0.7;
 }
 
 .brand-ja {
@@ -185,6 +191,43 @@ ul {
 .nav-menu a:hover::after {
     width: 100%;
 }
+
+/* Language Toggle */
+.lang-toggle {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.lang-btn {
+    font-family: var(--font-ja);
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--color-tsuchikabe);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+}
+
+.lang-btn:hover {
+    background: var(--color-shikkui);
+    border-color: var(--color-sumi);
+}
+
+.lang-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+}
+
+/* Hide/Show elements based on language */
+[data-lang] {
+    transition: opacity 0.3s ease;
+}
+
 
 /* ========================================
    Hero Section
@@ -233,7 +276,7 @@ ul {
     animation: fadeInUp 1.2s ease-out;
 }
 
-.hero-title-ja {
+.hero-title {
     font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: 400;
     letter-spacing: 0.15em;
@@ -303,7 +346,7 @@ ul {
     margin-bottom: var(--spacing-xl);
 }
 
-.section-title-ja {
+.section-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 400;
     letter-spacing: 0.15em;
@@ -660,6 +703,23 @@ ul {
 /* ========================================
    Responsive Design
    ======================================== */
+
+/* Tablet and below - hide navigation menu to save space */
+@media (max-width: 900px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .lang-toggle {
+        gap: 0.4rem;
+    }
+
+    .lang-btn {
+        font-size: 0.8rem;
+        padding: 0.45rem 0.9rem;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --header-height: 70px;
@@ -668,12 +728,14 @@ ul {
         --spacing-xxl: 5rem;
     }
 
-    .nav-menu {
-        gap: var(--spacing-md);
+    .brand-ja {
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
     }
 
-    .nav-menu a {
-        font-size: 0.85rem;
+    .brand-en {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
     }
 
     .concept-block {
@@ -697,6 +759,7 @@ ul {
     }
 }
 
+/* Small mobile screens */
 @media (max-width: 480px) {
     :root {
         --header-height: 65px;
@@ -704,25 +767,27 @@ ul {
 
     .nav {
         padding: 0 var(--spacing-sm);
+        gap: 0.5rem;
     }
 
     .brand-ja {
-        font-size: 0.9rem;
-        letter-spacing: 0.08em;
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
     }
 
     .brand-en {
         font-size: 0.6rem;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
     }
 
-    .nav-menu {
-        gap: var(--spacing-sm);
+    .lang-toggle {
+        gap: 0.3rem;
     }
 
-    .nav-menu a {
+    .lang-btn {
         font-size: 0.7rem;
-        letter-spacing: 0.08em;
+        padding: 0.4rem 0.7rem;
+        letter-spacing: 0.03em;
     }
 }
 
@@ -733,26 +798,29 @@ ul {
     }
 
     .nav {
-        padding: 0 0.75rem;
+        padding: 0 0.5rem;
+        gap: 0.25rem;
     }
 
     .brand-ja {
-        font-size: 0.8rem;
-        letter-spacing: 0.05em;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.15rem;
     }
 
     .brand-en {
-        font-size: 0.55rem;
-        letter-spacing: 0.1em;
+        font-size: 0.5rem;
+        letter-spacing: 0.08em;
     }
 
-    .nav-menu {
-        gap: 0.5rem;
+    .lang-toggle {
+        gap: 0.25rem;
     }
 
-    .nav-menu a {
+    .lang-btn {
         font-size: 0.65rem;
-        letter-spacing: 0.05em;
+        padding: 0.35rem 0.6rem;
+        letter-spacing: 0.02em;
     }
 }
 

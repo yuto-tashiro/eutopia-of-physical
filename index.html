@@ -18,26 +18,32 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav">
-            <div class="nav-brand">
+            <a href="#hero" class="nav-brand">
                 <h1 class="brand-ja">身体のユートピア</h1>
                 <p class="brand-en">Eutopia of Physical</p>
-            </div>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#concept">Concept</a></li>
                 <li><a href="#pillars">Activities</a></li>
                 <li><a href="#profile">Profile</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="ja">日本語</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="hero-visual">
             <img src="images/hero_body_silhouette.png" alt="身体性を感じるアートビジュアル" class="hero-image">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <h2 class="hero-title-ja">情報に埋もれた<br>身体を<br>問い直す</h2>
+            <h2 class="hero-title" data-lang="ja">情報に埋もれた<br>身体を<br>問い直す</h2>
+            <h2 class="hero-title" data-lang="en" style="display: none;">Rediscovering the Body<br>Buried
+                in<br>Information</h2>
             <p class="hero-subtitle-en">Beyond data, beyond objectivity—</p>
             <p class="hero-subtitle-en-small">Rediscovering what true health means.</p>
         </div>
@@ -51,42 +57,67 @@
     <section id="concept" class="section concept-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title-ja">なぜ今、身体か</h2>
+                <h2 class="section-title" data-lang="ja">なぜ今、身体か</h2>
+                <h2 class="section-title" data-lang="en" style="display: none;">Why Embodiment Matters Now</h2>
                 <p class="section-title-en">Why Embodiment Matters Now</p>
             </div>
 
             <div class="concept-content">
                 <div class="concept-block fade-in">
                     <div class="concept-number">01</div>
-                    <h3 class="concept-heading">AI時代の身体性</h3>
-                    <p class="concept-text">
+                    <h3 class="concept-heading" data-lang="ja">AI時代の身体性</h3>
+                    <h3 class="concept-heading" data-lang="en" style="display: none;">Embodiment in the AI Era</h3>
+                    <p class="concept-text" data-lang="ja">
                         人工知能が知的労働を代替し、情報が溢れる現代。<br>
                         だからこそ、代替不可能な「身体」の価値が際立ちます。<br>
                         感じること、動くこと、呼吸すること——<br>
                         この「今ここにある」身体感覚こそが、<br>
                         私たちの存在の根源です。
                     </p>
+                    <p class="concept-text" data-lang="en" style="display: none;">
+                        In an age where artificial intelligence replaces intellectual labor and information
+                        overflows,<br>
+                        the irreplaceable value of the "body" stands out.<br>
+                        Feeling, moving, breathing—<br>
+                        this "here and now" bodily sensation<br>
+                        is the foundation of our existence.
+                    </p>
                 </div>
 
                 <div class="concept-block fade-in">
                     <div class="concept-number">02</div>
-                    <h3 class="concept-heading">科学と感性の融合</h3>
-                    <p class="concept-text">
-                        理学療法士・博士（人間健康科学）としての科学的根拠と、<br>
+                    <h3 class="concept-heading" data-lang="ja">科学と感性の融合</h3>
+                    <h3 class="concept-heading" data-lang="en" style="display: none;">Fusion of Science and Sensibility
+                    </h3>
+                    <p class="concept-text" data-lang="ja">
+                        理学療法士・博士(人間健康科学)としての科学的根拠と、<br>
                         スポーツから始まった身体への探求。<br>
                         さらに文化・アートへの興味を持って探求し、<br>
                         エビデンスと感性を融合した健康観を追求します。
+                    </p>
+                    <p class="concept-text" data-lang="en" style="display: none;">
+                        Combining scientific evidence as a physical therapist and Ph.D. in Human Health Sciences<br>
+                        with an exploration of the body that began with sports.<br>
+                        Further pursuing interests in culture and art,<br>
+                        I seek a health perspective that fuses evidence with sensibility.
                     </p>
                 </div>
 
                 <div class="concept-block fade-in">
                     <div class="concept-number">03</div>
-                    <h3 class="concept-heading">Utopia から Eutopia へ</h3>
-                    <p class="concept-text">
-                        「Utopia（どこにもない理想郷）」ではなく、<br>
-                        「Eutopia（良き場所）」を今ここに創る。<br>
+                    <h3 class="concept-heading" data-lang="ja">Utopia から Eutopia へ</h3>
+                    <h3 class="concept-heading" data-lang="en" style="display: none;">From Utopia to Eutopia</h3>
+                    <p class="concept-text" data-lang="ja">
+                        「Utopia(どこにもない理想郷)」ではなく、<br>
+                        「Eutopia(良き場所)」を今ここに創る。<br>
                         実践を通じて、日本文化と世界の知見を融合した<br>
                         新しい健康の在り方を提唱します。
+                    </p>
+                    <p class="concept-text" data-lang="en" style="display: none;">
+                        Not "Utopia (an ideal place that exists nowhere),"<br>
+                        but creating "Eutopia (a good place)" here and now.<br>
+                        Through practice, I propose a new way of health<br>
+                        that fuses Japanese culture with global insights.
                     </p>
                 </div>
             </div>
@@ -97,7 +128,8 @@
     <section id="pillars" class="section pillars-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title-ja">活動の3つの柱</h2>
+                <h2 class="section-title" data-lang="ja">活動の3つの柱</h2>
+                <h2 class="section-title" data-lang="en" style="display: none;">Three Pillars of Practice</h2>
                 <p class="section-title-en">Three Pillars of Practice</p>
             </div>
 
@@ -109,17 +141,28 @@
                     </div>
                     <div class="pillar-content">
                         <h3 class="pillar-title-en">Science & Education</h3>
-                        <h4 class="pillar-title-ja">科学と教育</h4>
-                        <p class="pillar-description">
+                        <h4 class="pillar-title-ja" data-lang="ja">科学と教育</h4>
+                        <p class="pillar-description" data-lang="ja">
                             エビデンスに基づいた身体の理解を深め、<br>
                             専門家・一般の方々へ向けた教育活動を展開。<br>
                             学術研究と臨床実践の架け橋となり、<br>
                             科学的知見を社会に還元します。
                         </p>
-                        <ul class="pillar-list">
+                        <p class="pillar-description" data-lang="en" style="display: none;">
+                            Deepening evidence-based understanding of the body<br>
+                            and developing educational activities for both professionals and the general public.<br>
+                            Serving as a bridge between academic research and clinical practice,<br>
+                            returning scientific knowledge to society.
+                        </p>
+                        <ul class="pillar-list" data-lang="ja">
                             <li>学術研究・論文執筆</li>
                             <li>専門家向けセミナー</li>
                             <li>一般向け健康教育</li>
+                        </ul>
+                        <ul class="pillar-list" data-lang="en" style="display: none;">
+                            <li>Academic research and paper writing</li>
+                            <li>Seminars for professionals</li>
+                            <li>Health education for the general public</li>
                         </ul>
                     </div>
                 </article>
@@ -131,17 +174,28 @@
                     </div>
                     <div class="pillar-content">
                         <h3 class="pillar-title-en">Culture & Art</h3>
-                        <h4 class="pillar-title-ja">文化と芸術</h4>
-                        <p class="pillar-description">
+                        <h4 class="pillar-title-ja" data-lang="ja">文化と芸術</h4>
+                        <p class="pillar-description" data-lang="ja">
                             日本文化に根ざした健康観を再認識するとともに、<br>
                             世界各国の文化に合わせた健康観を理解。<br>
                             量的アプローチだけでなく、質的な探求を深めるため、<br>
                             アートの要素も取り入れていきます。
                         </p>
-                        <ul class="pillar-list">
+                        <p class="pillar-description" data-lang="en" style="display: none;">
+                            Recognizing health perspectives rooted in Japanese culture<br>
+                            while understanding health perspectives adapted to cultures around the world.<br>
+                            Incorporating artistic elements to deepen<br>
+                            not only quantitative approaches but also qualitative exploration.
+                        </p>
+                        <ul class="pillar-list" data-lang="ja">
                             <li>日本文化と健康観の再認識</li>
                             <li>世界各国の文化的健康観の理解</li>
                             <li>質的アプローチとアートの融合</li>
+                        </ul>
+                        <ul class="pillar-list" data-lang="en" style="display: none;">
+                            <li>Recognizing Japanese culture and health perspectives</li>
+                            <li>Understanding health perspectives of cultures worldwide</li>
+                            <li>Fusion of qualitative approaches and art</li>
                         </ul>
                     </div>
                 </article>
@@ -153,17 +207,28 @@
                     </div>
                     <div class="pillar-content">
                         <h3 class="pillar-title-en">Social & Well-being</h3>
-                        <h4 class="pillar-title-ja">社会とウェルビーイング</h4>
-                        <p class="pillar-description">
+                        <h4 class="pillar-title-ja" data-lang="ja">社会とウェルビーイング</h4>
+                        <p class="pillar-description" data-lang="ja">
                             個人の健康から社会のウェルビーイングへ。<br>
                             コミュニティづくり、企業支援、<br>
                             社会課題への取り組みを通じて、<br>
                             誰もが「整う」環境を創造します。
                         </p>
-                        <ul class="pillar-list">
+                        <p class="pillar-description" data-lang="en" style="display: none;">
+                            From individual health to social well-being.<br>
+                            Through community building, corporate support,<br>
+                            and addressing social issues,<br>
+                            creating an environment where everyone can "find balance."
+                        </p>
+                        <ul class="pillar-list" data-lang="ja">
                             <li>コミュニティ形成支援</li>
                             <li>企業の健康経営サポート</li>
                             <li>ソーシャルデザイン</li>
+                        </ul>
+                        <ul class="pillar-list" data-lang="en" style="display: none;">
+                            <li>Community formation support</li>
+                            <li>Corporate health management support</li>
+                            <li>Social design</li>
                         </ul>
                     </div>
                 </article>
@@ -175,37 +240,53 @@
     <section id="profile" class="section profile-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title-ja">主宰者紹介</h2>
+                <h2 class="section-title" data-lang="ja">主宰者紹介</h2>
+                <h2 class="section-title" data-lang="en" style="display: none;">Profile</h2>
                 <p class="section-title-en">Profile</p>
             </div>
 
             <div class="profile-content">
                 <div class="profile-info">
-                    <h3 class="profile-name-ja">田代 雄斗</h3>
-                    <p class="profile-name-en">Yuto Tashiro</p>
+                    <h3 class="profile-name-ja" data-lang="ja">田代 雄斗</h3>
+                    <h3 class="profile-name-ja" data-lang="en" style="display: none;">Yuto Tashiro</h3>
+                    <p class="profile-name-en" data-lang="en" style="display: none;">Based in Japan</p>
 
                     <div class="profile-credentials">
-                        <p>理学療法士 / JSPO-AT</p>
-                        <p>Ph.D. (人間健康科学)</p>
-                        <p>株式会社HILUCO 代表取締役</p>
+                        <p data-lang="ja">理学療法士 / JSPO-AT</p>
+                        <p data-lang="en" style="display: none;">Physiotherapist / JSPO-AT</p>
+                        <p data-lang="ja">Ph.D. (人間健康科学)</p>
+                        <p data-lang="en" style="display: none;">Ph.D. (Human Health Science)</p>
+                        <p data-lang="ja">株式会社HILUCO 代表取締役</p>
+                        <p data-lang="en" style="display: none;">CEO, HILUCO Inc.</p>
                     </div>
 
                     <div class="profile-bio">
-                        <p>
+                        <p data-lang="ja">
                             科学的バックグラウンドを持ちながら、<br>
                             スポーツ、文化、アート、ビジネスなど<br>
                             多岐にわたる領域で活動する実践者。
                         </p>
-                        <p>
+                        <p data-lang="en" style="display: none;">
+                            A practitioner with a scientific background<br>
+                            who is active in a wide range of fields<br>
+                            including sports, culture, art, and business.
+                        </p>
+                        <p data-lang="ja">
                             「身体」を軸に、エビデンスと感性、<br>
                             東洋と西洋、伝統と革新——<br>
                             様々な境界を超えて、人間の可能性を探求し続けています。
                         </p>
+                        <p data-lang="en" style="display: none;">
+                            With the "body" as the axis,<br>
+                            continuing to explore human potential beyond various boundaries—<br>
+                            evidence and sensibility, East and West, tradition and innovation.
+                        </p>
                     </div>
 
                     <div class="profile-links">
+                        <!-- Japanese: stand.fm link -->
                         <a href="https://stand.fm/channels/5f4b7e8f6a9e5b17f70ba410" target="_blank"
-                            rel="noopener noreferrer" class="profile-link">
+                            rel="noopener noreferrer" class="profile-link" data-lang="ja">
                             <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2">
                                 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
@@ -213,6 +294,15 @@
                                 <line x1="12" x2="12" y1="19" y2="22"></line>
                             </svg>
                             <span>stand.fm で発信中</span>
+                        </a>
+                        <!-- English: LinkedIn link -->
+                        <a href="https://www.linkedin.com/in/yuto-tashiro-hiluco/" target="_blank"
+                            rel="noopener noreferrer" class="profile-link" data-lang="en" style="display: none;">
+                            <svg class="link-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            <span>Connect on LinkedIn</span>
                         </a>
                     </div>
                 </div>
