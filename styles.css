@@ -418,6 +418,8 @@ ul {
     line-height: 2;
     letter-spacing: 0.05em;
     color: var(--color-text-primary);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
 }
 
 /* ========================================
@@ -499,6 +501,8 @@ ul {
     letter-spacing: 0.05em;
     margin-bottom: var(--spacing-md);
     color: var(--color-text-primary);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
 }
 
 .pillar-list {
@@ -589,6 +593,8 @@ ul {
     line-height: 2;
     letter-spacing: 0.05em;
     color: var(--color-text-primary);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
 }
 
 .profile-links {
@@ -728,6 +734,14 @@ ul {
         --spacing-xxl: 5rem;
     }
 
+    /* Hide forced <br> tags so text reflows naturally on mobile */
+    .concept-text br,
+    .pillar-description br,
+    .profile-bio p br,
+    .hero-subtitle-en br {
+        display: none;
+    }
+
     .brand-ja {
         font-size: 1.1rem;
         letter-spacing: 0.08em;
@@ -738,6 +752,10 @@ ul {
         letter-spacing: 0.12em;
     }
 
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
     .concept-block {
         padding-left: var(--spacing-md);
     }
@@ -746,16 +764,49 @@ ul {
         font-size: 2rem;
     }
 
+    .concept-text {
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+
     .pillars-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .pillar-content {
+        padding: var(--spacing-md);
+    }
+
+    .pillar-description {
+        font-size: 0.95rem;
+        line-height: 1.85;
     }
 
     .profile-info {
-        padding: var(--spacing-lg);
+        padding: var(--spacing-md);
     }
 
     .profile-bio {
-        text-align: center;
+        text-align: left;
+    }
+
+    .profile-bio p {
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+
+    .profile-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .section-title-en {
+        font-size: clamp(0.85rem, 2vw, 1.1rem);
     }
 }
 
@@ -763,6 +814,7 @@ ul {
 @media (max-width: 480px) {
     :root {
         --header-height: 65px;
+        --spacing-md: 1.25rem;
     }
 
     .nav {
@@ -788,6 +840,49 @@ ul {
         font-size: 0.7rem;
         padding: 0.4rem 0.7rem;
         letter-spacing: 0.03em;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        letter-spacing: 0.1em;
+    }
+
+    .concept-heading {
+        font-size: 1.25rem;
+    }
+
+    .concept-text {
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+
+    .pillar-image-wrapper {
+        height: 200px;
+    }
+
+    .pillar-title-en {
+        font-size: 1.25rem;
+    }
+
+    .pillar-title-ja {
+        font-size: 1.1rem;
+    }
+
+    .pillar-description {
+        font-size: 0.9rem;
+    }
+
+    .profile-credentials p {
+        font-size: 0.9rem;
+    }
+
+    .profile-bio p {
+        font-size: 0.95rem;
+        line-height: 1.85;
+    }
+
+    .footer-title-ja {
+        font-size: 1.25rem;
     }
 }
 
