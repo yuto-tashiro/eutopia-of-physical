@@ -596,12 +596,21 @@ ul {
 }
 
 /* ========================================
+   CPT Section
+   ======================================== */
+.cpt-section {
+    background: linear-gradient(to bottom,
+            var(--color-shikkui) 0%,
+            var(--color-bg-primary) 100%);
+}
+
+/* ========================================
    Profile Section
    ======================================== */
 .profile-section {
     background: linear-gradient(to bottom,
-            var(--color-shikkui) 0%,
-            var(--color-bg-primary) 100%);
+            var(--color-bg-primary) 0%,
+            var(--color-shikkui) 100%);
 }
 
 .profile-content {
