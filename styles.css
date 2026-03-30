@@ -596,6 +596,111 @@ ul {
 }
 
 /* ========================================
+   Newsletter Banner
+   ======================================== */
+.newsletter-banner {
+    padding: var(--spacing-lg) 0;
+    position: relative;
+}
+
+.newsletter-banner--hero {
+    background: var(--color-kon);
+}
+
+.newsletter-banner--pre-profile {
+    background: var(--color-sumi);
+}
+
+.newsletter-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+}
+
+.newsletter-banner-label {
+    font-family: var(--font-en);
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-xs);
+}
+
+.newsletter-banner-title {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.newsletter-banner-desc {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+}
+
+.newsletter-banner-cta {
+    flex-shrink: 0;
+}
+
+.newsletter-banner-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 2px;
+    font-family: var(--font-ja);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.newsletter-banner-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.newsletter-banner-btn .link-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.newsletter-banner-btn:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .newsletter-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .newsletter-banner-cta {
+        width: 100%;
+    }
+
+    .newsletter-banner-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ========================================
    CPT Section
    ======================================== */
 .cpt-section {
