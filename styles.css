@@ -604,11 +604,11 @@ ul {
 }
 
 .newsletter-banner--hero {
-    background: var(--color-kon);
+    background: var(--color-suoh);
 }
 
 .newsletter-banner--pre-profile {
-    background: var(--color-sumi);
+    background: #3A2220;
 }
 
 .newsletter-banner-inner {
