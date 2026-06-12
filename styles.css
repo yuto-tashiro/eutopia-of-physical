@@ -1,19 +1,23 @@
 /* ========================================
-   CSS Variables & Design System — HILUCO Brand
+   CSS Variables & Design System — HILUCO Brand (Light Edition)
    ======================================== */
 :root {
-    /* HILUCO Color Palette */
-    --color-bg-primary: #0D1117;
-    --color-bg-black: #000000;
-    --color-bg-card: #1F2937;
-    --color-text-primary: #FFFFFF;
-    --color-text-secondary: #E8E8E8;
-    --color-text-muted: #9CA3AF;
-    --color-text-support: #6B7280;
-    --color-accent: #C4A265;
-    --color-accent-hover: #D4B87A;
-    --color-border: rgba(196, 162, 101, 0.2);
-    --color-line: #6B7280;
+    /* HILUCO Light Color Palette — 白・青テイスト */
+    --color-bg-primary: #FAFAFA;           /* 白ベース背景 */
+    --color-bg-light-blue: #EEF3FA;        /* 淡い青グレー */
+    --color-bg-dark: #0C1C38;              /* ディープネイビー（バナー・フッター） */
+    --color-bg-dark-2: #0A1628;            /* さらに深いネイビー */
+    --color-bg-card: #FFFFFF;              /* カード白 */
+    --color-text-primary: #0D1117;         /* ネイビーブラック */
+    --color-text-secondary: #1E3A5F;       /* ディープネイビー */
+    --color-text-body: #374151;            /* 本文グレー */
+    --color-text-muted: #6B7280;           /* ミュートグレー */
+    --color-text-on-dark: #E8E8E8;         /* ダーク背景上のテキスト */
+    --color-accent: #C4A265;              /* ウォームゴールド */
+    --color-accent-hover: #D4B87A;         /* ソフトゴールド */
+    --color-navy: #1A3A6B;                 /* ネイビーブルーアクセント */
+    --color-border-light: rgba(13, 28, 56, 0.1);   /* 淡いネイビーボーダー */
+    --color-border-gold: rgba(196, 162, 101, 0.35); /* ゴールドボーダー */
 
     /* Typography */
     --font-ja-serif: 'Noto Serif JP', serif;
@@ -64,7 +68,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Subtle Geometric Pattern Overlay */
+/* Subtle geometric grid — very light on white */
 body::before {
     content: '';
     position: fixed;
@@ -77,15 +81,15 @@ body::before {
             0deg,
             transparent,
             transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
+            rgba(13, 28, 56, 0.03) 59px,
+            rgba(13, 28, 56, 0.03) 60px
         ),
         repeating-linear-gradient(
             90deg,
             transparent,
             transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
+            rgba(13, 28, 56, 0.03) 59px,
+            rgba(13, 28, 56, 0.03) 60px
         );
     pointer-events: none;
     z-index: 0;
@@ -125,15 +129,15 @@ ul {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(13, 17, 23, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(196, 162, 101, 0.2);
+    background: rgba(250, 250, 250, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border-light);
     z-index: 1000;
     transition: var(--transition-smooth);
 }
 
 .header.scrolled {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.1);
 }
 
 .nav {
@@ -180,11 +184,11 @@ ul {
 
 .nav-menu a {
     font-family: var(--font-label);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     position: relative;
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
 }
 
 .nav-menu a::after {
@@ -215,12 +219,12 @@ ul {
 
 .lang-btn {
     font-family: var(--font-label);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.12em;
-    padding: 0.45rem 0.9rem;
+    padding: 0.4rem 0.85rem;
     background: transparent;
-    border: 1px solid var(--color-text-support);
-    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-body);
     cursor: pointer;
     transition: var(--transition-fast);
     border-radius: 0;
@@ -235,7 +239,7 @@ ul {
 .lang-btn.active {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: #FFFFFF;
 }
 
 /* Hide/Show elements based on language */
@@ -244,7 +248,7 @@ ul {
 }
 
 /* ========================================
-   Hero Section
+   Hero Section — ダーク維持（画像背景）
    ======================================== */
 .hero {
     position: relative;
@@ -279,8 +283,8 @@ ul {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-        rgba(13, 17, 23, 0.35) 0%,
-        rgba(0, 0, 0, 0.72) 100%);
+        rgba(12, 28, 56, 0.45) 0%,
+        rgba(10, 22, 40, 0.78) 100%);
 }
 
 .hero-content {
@@ -308,7 +312,7 @@ ul {
     letter-spacing: 0.18em;
     line-height: 1.5;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-primary);
+    color: #FFFFFF;
 }
 
 .hero-subtitle-en {
@@ -326,7 +330,7 @@ ul {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.08em;
-    color: var(--color-text-muted);
+    color: rgba(232, 232, 232, 0.75);
 }
 
 .scroll-indicator {
@@ -370,7 +374,7 @@ ul {
     margin-bottom: var(--spacing-xl);
 }
 
-/* Gold divider line below section header labels */
+/* Gold divider line below section labels */
 .section-header::after {
     content: '';
     display: block;
@@ -400,7 +404,7 @@ ul {
 }
 
 /* ========================================
-   Concept Section
+   Concept Section — 白背景
    ======================================== */
 .concept-section {
     background: var(--color-bg-primary);
@@ -417,7 +421,7 @@ ul {
 .concept-block {
     position: relative;
     padding-left: var(--spacing-lg);
-    border-left: 1px solid rgba(196, 162, 101, 0.3);
+    border-left: 1px solid var(--color-border-gold);
     opacity: 0;
     transform: translateY(30px);
     transition: var(--transition-smooth);
@@ -435,8 +439,8 @@ ul {
     font-family: var(--font-en-serif);
     font-size: 3.5rem;
     font-weight: 300;
-    color: var(--color-accent);
-    opacity: 0.2;
+    color: var(--color-navy);
+    opacity: 0.12;
     line-height: 1;
     z-index: 0;
 }
@@ -458,16 +462,16 @@ ul {
     font-size: 1.05rem;
     line-height: 2;
     letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
     word-break: auto-phrase;
     overflow-wrap: break-word;
 }
 
 /* ========================================
-   Pillars Section
+   Pillars Section — 淡い青背景
    ======================================== */
 .pillars-section {
-    background: var(--color-bg-primary);
+    background: var(--color-bg-light-blue);
 }
 
 .pillars-grid {
@@ -481,7 +485,8 @@ ul {
     background: var(--color-bg-card);
     border-radius: 0;
     overflow: hidden;
-    border: 1px solid rgba(196, 162, 101, 0.15);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
     transition: var(--transition-smooth);
     opacity: 0;
     transform: translateY(40px);
@@ -494,7 +499,8 @@ ul {
 
 .pillar-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(196, 162, 101, 0.45);
+    box-shadow: 0 12px 40px rgba(13, 28, 56, 0.14);
+    border-color: var(--color-border-gold);
 }
 
 .pillar-image-wrapper {
@@ -512,7 +518,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(13, 17, 23, 0.4);
+    background: rgba(12, 28, 56, 0.35);
     pointer-events: none;
 }
 
@@ -520,7 +526,7 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(30%);
+    filter: grayscale(20%);
     transition: transform 0.8s ease;
 }
 
@@ -556,7 +562,7 @@ ul {
     line-height: 1.9;
     letter-spacing: 0.05em;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
     word-break: auto-phrase;
     overflow-wrap: break-word;
 }
@@ -565,7 +571,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    border-top: 1px solid rgba(196, 162, 101, 0.2);
+    border-top: 1px solid var(--color-border-light);
     padding-top: var(--spacing-md);
 }
 
@@ -586,7 +592,7 @@ ul {
 }
 
 /* ========================================
-   Physical Thinker Section
+   Physical Thinker Section — 白背景
    ======================================== */
 .physical-thinker-section {
     background: var(--color-bg-primary);
@@ -601,7 +607,8 @@ ul {
 .physical-thinker-body {
     background: var(--color-bg-card);
     padding: var(--spacing-xl);
-    border: 1px solid rgba(196, 162, 101, 0.2);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 2px 24px rgba(13, 28, 56, 0.08);
 }
 
 .physical-thinker-text {
@@ -609,7 +616,7 @@ ul {
     font-size: 1.05rem;
     line-height: 2;
     letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
     text-align: left;
     word-break: auto-phrase;
     overflow-wrap: break-word;
@@ -635,7 +642,7 @@ ul {
 
 .physical-thinker-link:hover {
     background: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -650,23 +657,49 @@ ul {
 }
 
 /* ========================================
-   Newsletter Banner
+   Newsletter Banner — ディープネイビー
    ======================================== */
 .newsletter-banner {
     padding: var(--spacing-lg) 0;
     position: relative;
-    background: var(--color-bg-black);
+    background: var(--color-bg-dark);
+    overflow: hidden;
+}
+
+/* Subtle gold grid on dark banners */
+.newsletter-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        );
+    pointer-events: none;
 }
 
 .newsletter-banner--hero {
-    background: var(--color-bg-black);
+    background: var(--color-bg-dark);
 }
 
 .newsletter-banner--pre-profile {
-    background: var(--color-bg-black);
+    background: var(--color-bg-dark-2);
 }
 
 .newsletter-banner-inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -689,7 +722,7 @@ ul {
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 500;
     letter-spacing: 0.1em;
-    color: var(--color-text-primary);
+    color: #FFFFFF;
     margin-bottom: var(--spacing-sm);
     line-height: 1.6;
 }
@@ -698,7 +731,7 @@ ul {
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
     line-height: 1.9;
-    color: var(--color-text-secondary);
+    color: var(--color-text-on-dark);
     letter-spacing: 0.04em;
 }
 
@@ -712,7 +745,7 @@ ul {
     gap: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-lg);
     background: transparent;
-    color: var(--color-text-primary);
+    color: #FFFFFF;
     border: 1px solid rgba(196, 162, 101, 0.6);
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
@@ -724,7 +757,7 @@ ul {
 .newsletter-banner-btn:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: var(--color-bg-dark);
     transform: translateY(-2px);
 }
 
@@ -757,11 +790,11 @@ ul {
 }
 
 /* ========================================
-   Music Banner Section
+   Music Banner Section — 淡い青背景
    ======================================== */
 .music-banner {
     padding: var(--spacing-lg) 0;
-    background: var(--color-bg-primary);
+    background: var(--color-bg-light-blue);
     position: relative;
 }
 
@@ -771,7 +804,9 @@ ul {
     justify-content: space-between;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg) var(--spacing-xl);
-    border: 1px solid rgba(196, 162, 101, 0.2);
+    border: 1px solid var(--color-border-light);
+    background: var(--color-bg-card);
+    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
 }
 
 .music-banner-label {
@@ -797,7 +832,7 @@ ul {
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
     line-height: 1.9;
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
     letter-spacing: 0.04em;
 }
 
@@ -812,7 +847,7 @@ ul {
     padding: var(--spacing-md) var(--spacing-lg);
     background: transparent;
     color: var(--color-text-primary);
-    border: 1px solid rgba(196, 162, 101, 0.6);
+    border: 1px solid var(--color-accent);
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
     letter-spacing: 0.1em;
@@ -823,7 +858,7 @@ ul {
 .music-banner-btn:hover {
     background: var(--color-accent);
     border-color: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -836,7 +871,7 @@ ul {
 }
 
 .music-banner-btn:hover .music-icon {
-    stroke: var(--color-bg-primary);
+    stroke: #FFFFFF;
 }
 
 .music-banner-btn .link-arrow {
@@ -868,14 +903,14 @@ ul {
 }
 
 /* ========================================
-   CPT Section
+   CPT Section — 淡い青背景
    ======================================== */
 .cpt-section {
-    background: var(--color-bg-primary);
+    background: var(--color-bg-light-blue);
 }
 
 /* ========================================
-   Profile Section
+   Profile Section — 白背景
    ======================================== */
 .profile-section {
     background: var(--color-bg-primary);
@@ -890,7 +925,8 @@ ul {
 .profile-info {
     background: var(--color-bg-card);
     padding: var(--spacing-xl);
-    border: 1px solid rgba(196, 162, 101, 0.2);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 4px 30px rgba(13, 28, 56, 0.09);
 }
 
 .profile-name-ja {
@@ -917,7 +953,7 @@ ul {
     gap: var(--spacing-xs);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(196, 162, 101, 0.2);
+    border-bottom: 1px solid var(--color-border-light);
 }
 
 .profile-credentials p {
@@ -940,7 +976,7 @@ ul {
     font-size: 1.05rem;
     line-height: 2;
     letter-spacing: 0.05em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-body);
     word-break: auto-phrase;
     overflow-wrap: break-word;
 }
@@ -967,7 +1003,7 @@ ul {
 
 .profile-link:hover {
     background: var(--color-accent);
-    color: var(--color-bg-primary);
+    color: #FFFFFF;
     transform: translateY(-2px);
 }
 
@@ -977,16 +1013,43 @@ ul {
 }
 
 /* ========================================
-   Footer
+   Footer — ディープネイビー
    ======================================== */
 .footer {
-    background: var(--color-bg-black);
-    color: var(--color-text-secondary);
+    background: var(--color-bg-dark);
+    color: var(--color-text-on-dark);
     padding: var(--spacing-xl) 0 var(--spacing-lg);
     border-top: 1px solid rgba(196, 162, 101, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold grid on footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        );
+    pointer-events: none;
 }
 
 .footer-content {
+    position: relative;
+    z-index: 1;
     text-align: center;
 }
 
@@ -1000,7 +1063,7 @@ ul {
     font-weight: 400;
     letter-spacing: 0.15em;
     margin-bottom: var(--spacing-xs);
-    color: var(--color-text-primary);
+    color: #FFFFFF;
 }
 
 .footer-title-en {
@@ -1017,20 +1080,20 @@ ul {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-text-support);
+    color: rgba(232, 232, 232, 0.5);
     margin-top: var(--spacing-md);
 }
 
 .footer-hiluco span {
     color: var(--color-accent);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .footer-copyright {
     font-family: var(--font-label);
     font-size: 0.7rem;
     letter-spacing: 0.1em;
-    color: var(--color-text-support);
+    color: rgba(232, 232, 232, 0.4);
     margin-top: var(--spacing-xs);
 }
 
@@ -1077,8 +1140,8 @@ ul {
     }
 
     .lang-btn {
-        font-size: 0.7rem;
-        padding: 0.45rem 0.9rem;
+        font-size: 0.68rem;
+        padding: 0.4rem 0.85rem;
     }
 }
 
@@ -1206,8 +1269,8 @@ ul {
     }
 
     .lang-btn {
-        font-size: 0.65rem;
-        padding: 0.4rem 0.7rem;
+        font-size: 0.6rem;
+        padding: 0.35rem 0.65rem;
         letter-spacing: 0.03em;
     }
 
@@ -1281,8 +1344,8 @@ ul {
     }
 
     .lang-btn {
-        font-size: 0.6rem;
-        padding: 0.35rem 0.6rem;
+        font-size: 0.55rem;
+        padding: 0.32rem 0.55rem;
         letter-spacing: 0.02em;
     }
 }
@@ -1301,7 +1364,6 @@ ul {
     transform: translateY(0);
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
