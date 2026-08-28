@@ -687,13 +687,12 @@ ul {
 }
 
 .structure-diagram {
-    max-width: 900px;
+    max-width: 620px;
     margin: 0 auto var(--spacing-lg);
     padding: var(--spacing-md);
     background: var(--color-bg-card);
     border: 1px solid var(--color-border-light);
     box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
-    overflow-x: auto;
 }
 
 .structure-svg {
@@ -702,9 +701,35 @@ ul {
     height: auto;
 }
 
-/* 広い画面は横並び、狭い画面は縦積みに組み替える */
-.structure-svg--narrow {
-    display: none;
+.structure-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md) var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.structure-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-ja-sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+}
+
+.legend-line {
+    display: inline-block;
+    width: 28px;
+    border-top: 1.5px solid var(--color-navy);
+    flex-shrink: 0;
+}
+
+.legend-line--dashed {
+    border-top-style: dashed;
 }
 
 .structure-defs {
@@ -751,17 +776,12 @@ ul {
 
     .structure-diagram {
         padding: var(--spacing-sm);
-        overflow-x: visible;
     }
 
-    .structure-svg--wide {
-        display: none;
-    }
-
-    .structure-svg--narrow {
-        display: block;
-        max-width: 420px;
-        margin: 0 auto;
+    .structure-legend {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
     }
 
     .structure-def {
