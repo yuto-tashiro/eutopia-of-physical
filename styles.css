@@ -468,6 +468,328 @@ ul {
 }
 
 /* ========================================
+   Stance Section — ディープネイビー（ページ内で一度だけ声色が変わる場所）
+   ======================================== */
+.stance-section {
+    background: var(--color-bg-dark);
+    overflow: hidden;
+}
+
+/* Subtle gold grid, as on the dark banners */
+.stance-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 59px,
+            rgba(196, 162, 101, 0.05) 59px,
+            rgba(196, 162, 101, 0.05) 60px
+        );
+    pointer-events: none;
+}
+
+.stance-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.stance-section .section-title {
+    color: #FFFFFF;
+}
+
+.stance-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.stance-line {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: baseline;
+    gap: var(--spacing-md);
+}
+
+.stance-affirm,
+.stance-hold {
+    display: block;
+    font-family: var(--font-ja-serif);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    line-height: 1.9;
+    letter-spacing: 0.08em;
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+.stance-affirm {
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.stance-hold {
+    color: var(--color-accent);
+    padding-left: var(--spacing-md);
+    border-left: 1px solid rgba(196, 162, 101, 0.4);
+}
+
+@media (max-width: 768px) {
+    .stance-list {
+        gap: var(--spacing-lg);
+    }
+
+    .stance-line {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+
+    /* 対句は縦に重ね、「しかし」の側だけを金の罫で受ける */
+    .stance-affirm {
+        text-align: left;
+    }
+
+    .stance-hold {
+        padding-left: var(--spacing-sm);
+    }
+}
+
+/* ========================================
+   Companions Section — 淡い青背景（四者を完全に対等に扱う）
+   ======================================== */
+.companions-section {
+    background: var(--color-bg-light-blue);
+}
+
+.companions-lead {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    text-align: center;
+}
+
+.companions-lead p {
+    font-family: var(--font-ja-sans);
+    font-size: 1.05rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--color-text-body);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+.companions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    align-items: stretch;
+}
+
+.companion-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    border-top: 1px solid var(--color-border-gold);
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
+}
+
+.companion-title {
+    font-family: var(--font-ja-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.companion-text {
+    font-family: var(--font-ja-sans);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    color: var(--color-text-body);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+.companions-note {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto 0;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border-gold);
+    text-align: center;
+}
+
+.companions-note p {
+    font-family: var(--font-ja-sans);
+    font-size: 0.95rem;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 1024px) {
+    .companions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .companions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .companions-lead p br,
+    .companions-note p br {
+        display: none;
+    }
+
+    .companions-lead p {
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+}
+
+/* ========================================
+   Structure Section — 白背景
+   ======================================== */
+.structure-section {
+    background: var(--color-bg-primary);
+}
+
+.structure-lead {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+
+.structure-lead p {
+    font-family: var(--font-ja-sans);
+    font-size: 1.05rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--color-text-body);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+.structure-diagram {
+    max-width: 620px;
+    margin: 0 auto var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
+}
+
+.structure-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.structure-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md) var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border-light);
+}
+
+.structure-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-family: var(--font-ja-sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+}
+
+.legend-line {
+    display: inline-block;
+    width: 28px;
+    border-top: 1.5px solid var(--color-navy);
+    flex-shrink: 0;
+}
+
+.legend-line--dashed {
+    border-top-style: dashed;
+}
+
+.structure-defs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.structure-def {
+    padding-left: var(--spacing-md);
+    border-left: 1px solid var(--color-border-gold);
+}
+
+.structure-def-title {
+    font-family: var(--font-ja-serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.structure-def-text {
+    font-family: var(--font-ja-sans);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    color: var(--color-text-body);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+    .structure-lead p br {
+        display: none;
+    }
+
+    .structure-lead p {
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+
+    .structure-diagram {
+        padding: var(--spacing-sm);
+    }
+
+    .structure-legend {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
+
+    .structure-def {
+        padding-left: var(--spacing-sm);
+    }
+}
+
+/* ========================================
    Pillars Section — 淡い青背景
    ======================================== */
 .pillars-section {
@@ -676,10 +998,6 @@ ul {
     pointer-events: none;
 }
 
-.newsletter-banner--hero {
-    background: var(--color-bg-dark);
-}
-
 .newsletter-banner--pre-profile {
     background: var(--color-bg-dark-2);
 }
@@ -777,119 +1095,6 @@ ul {
 }
 
 /* ========================================
-   Music Banner Section — 淡い青背景
-   ======================================== */
-.music-banner {
-    padding: var(--spacing-lg) 0;
-    background: var(--color-bg-light-blue);
-    position: relative;
-}
-
-.music-banner-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border: 1px solid var(--color-border-light);
-    background: var(--color-bg-card);
-    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
-}
-
-.music-banner-label {
-    font-family: var(--font-label);
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    margin-bottom: var(--spacing-xs);
-}
-
-.music-banner-title {
-    font-family: var(--font-ja-serif);
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.6;
-}
-
-.music-banner-desc {
-    font-family: var(--font-ja-sans);
-    font-size: 0.95rem;
-    line-height: 1.9;
-    color: var(--color-text-body);
-    letter-spacing: 0.04em;
-}
-
-.music-banner-cta {
-    flex-shrink: 0;
-}
-
-.music-banner-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background: transparent;
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-accent);
-    font-family: var(--font-ja-sans);
-    font-size: 0.95rem;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
-    transition: var(--transition-fast);
-}
-
-.music-banner-btn:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: #FFFFFF;
-    transform: translateY(-2px);
-}
-
-.music-icon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    stroke: var(--color-accent);
-    transition: stroke 0.3s ease;
-}
-
-.music-banner-btn:hover .music-icon {
-    stroke: #FFFFFF;
-}
-
-.music-banner-btn .link-arrow {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s ease;
-}
-
-.music-banner-btn:hover .link-arrow {
-    transform: translateX(4px);
-}
-
-@media (max-width: 768px) {
-    .music-banner-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: var(--spacing-md);
-        gap: var(--spacing-md);
-    }
-
-    .music-banner-cta {
-        width: 100%;
-    }
-
-    .music-banner-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* ========================================
    CPT Section — 淡い青背景
    ======================================== */
 .cpt-section {
@@ -909,6 +1114,25 @@ ul {
     text-align: center;
 }
 
+.profile-operator {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.profile-operator p {
+    font-family: var(--font-ja-sans);
+    font-size: 1.05rem;
+    line-height: 2;
+    letter-spacing: 0.05em;
+    color: var(--color-text-body);
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+}
+
 .profile-info {
     background: var(--color-bg-card);
     padding: var(--spacing-xl);
@@ -916,9 +1140,19 @@ ul {
     box-shadow: 0 4px 30px rgba(13, 28, 56, 0.09);
 }
 
+.profile-label {
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
 .profile-name-ja {
     font-family: var(--font-ja-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
     font-weight: 600;
     letter-spacing: 0.15em;
     margin-bottom: var(--spacing-xs);
@@ -1144,8 +1378,14 @@ ul {
     .pillar-description br,
     .physical-thinker-text br,
     .profile-bio p br,
+    .profile-operator p br,
     .hero-subtitle-en br {
         display: none;
+    }
+
+    .profile-operator p {
+        font-size: 1rem;
+        line-height: 1.9;
     }
 
     .brand-ja {
