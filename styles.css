@@ -307,12 +307,59 @@ ul {
 
 .hero-title {
     font-family: var(--font-catch);
-    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-size: clamp(1.75rem, 4.4vw, 3.8rem);
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     line-height: 1.5;
     margin-bottom: var(--spacing-md);
     color: #FFFFFF;
+}
+
+/* フレーズ単位でのみ改行させる（狭い画面で語中改行を防ぐ） */
+.hero-phrase {
+    display: inline-block;
+}
+
+.hero-title--en {
+    font-family: var(--font-en-serif);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+/* ----- トピアくん（キャラクター） ----- */
+.topia-hero {
+    position: absolute;
+    right: clamp(1rem, 5vw, 5rem);
+    bottom: clamp(1.5rem, 6vh, 4rem);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    animation: fadeIn 1.5s ease-out 0.8s both;
+}
+
+.topia-hero-img {
+    width: clamp(84px, 9vw, 140px);
+    height: auto;
+    filter: drop-shadow(0 0 18px rgba(249, 168, 80, 0.35));
+    animation: topiaFloat 4.5s ease-in-out infinite;
+}
+
+.topia-hero-name {
+    font-family: var(--font-ja-serif);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+}
+
+@keyframes topiaFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
 }
 
 .hero-subtitle-en {
@@ -1276,6 +1323,14 @@ ul {
 
 .footer-brand {
     margin-bottom: var(--spacing-md);
+}
+
+.footer-topia {
+    display: block;
+    width: 64px;
+    height: auto;
+    margin: 0 auto var(--spacing-sm);
+    filter: drop-shadow(0 0 12px rgba(249, 168, 80, 0.3));
 }
 
 .footer-title-ja {
