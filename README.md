@@ -1,6 +1,6 @@
 # 身体のユートピア (Embodied Eutopia)
 
-**情報に埋もれた身体を、問い直す**  
+**言葉にならないものを、なかったことにしない**  
 *Beyond data, beyond objectivity—Rediscovering what true health means.*
 
 ---
