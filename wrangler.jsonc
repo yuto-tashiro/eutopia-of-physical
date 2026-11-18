@@ -1,0 +1,11 @@
+{
+  "name": "embodied-eutopia",
+  "account_id": "8a5b698ae4fb727ecc4051e0e45d9624",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": true,
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
