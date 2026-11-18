@@ -136,7 +136,21 @@ cd eutopia-of-physical
 
 ---
 
-## GitHub Pages でのデプロイ (Deploy with GitHub Pages)
+## Cloudflare での公開
+
+- アカウント: Embodied Eutopia
+- Worker: `embodied-eutopia`
+- 本番URL: https://embodied-eutopia.hiluco.jp/
+- GitHub `main` ブランチへの更新で自動デプロイ
+- ビルドコマンド: なし
+- デプロイコマンド: `npx wrangler deploy`
+- 公開対象はルートのHTML・CSS・JavaScriptと`images/`。管理用ファイルは`.assetsignore`で除外します。
+
+旧Vercelプロジェクトは切り戻し用として保持しています。サイト内の別プロジェクトへのVercelリンクは個別に移行できます。
+
+---
+
+## GitHub Pages でのデプロイ（参考）
 
 1. リポジトリの Settings に移動
 2. Pages セクションで Source を `main` ブランチに設定
