@@ -1,5 +1,9 @@
 README.md
 wrangler.jsonc
+.gitignore
+.assetsignore
 .git/
 .github/
+.wrangler/
 node_modules/
+.DS_Store
