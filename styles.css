@@ -3,29 +3,29 @@
    ======================================== */
 :root {
     /* HILUCO Light Color Palette — 白・青テイスト */
-    --color-bg-primary: #FAFAFA;           /* 白ベース背景 */
-    --color-bg-light-blue: #EEF3FA;        /* 淡い青グレー */
-    --color-bg-dark: #0C1C38;              /* ディープネイビー（バナー・フッター） */
-    --color-bg-dark-2: #0A1628;            /* さらに深いネイビー */
-    --color-bg-card: #FFFFFF;              /* カード白 */
-    --color-text-primary: #0D1117;         /* ネイビーブラック */
-    --color-text-secondary: #1E3A5F;       /* ディープネイビー */
-    --color-text-body: #374151;            /* 本文グレー */
-    --color-text-muted: #6B7280;           /* ミュートグレー */
-    --color-text-on-dark: #E8E8E8;         /* ダーク背景上のテキスト */
-    --color-accent: #C4A265;              /* ウォームゴールド */
-    --color-accent-hover: #D4B87A;         /* ソフトゴールド */
-    --color-navy: #1A3A6B;                 /* ネイビーブルーアクセント */
-    --color-border-light: rgba(13, 28, 56, 0.1);   /* 淡いネイビーボーダー */
-    --color-border-gold: rgba(196, 162, 101, 0.35); /* ゴールドボーダー */
+    --color-bg-primary: #FFFFFF;
+    --color-bg-light-blue: #EDF4F7;
+    --color-bg-dark: #36718A;
+    --color-bg-dark-2: #EDF4F7;
+    --color-bg-card: #FFFFFF;
+    --color-text-primary: #263238;
+    --color-text-secondary: #326F89;
+    --color-text-body: #3E5058;
+    --color-text-muted: #61747D;
+    --color-text-on-dark: #FFFFFF;
+    --color-accent: #326F89;
+    --color-accent-hover: #24586E;
+    --color-navy: #4388A3;
+    --color-border-light: #D7E4E9;
+    --color-border-blue: #B9CED7;
 
     /* Typography */
     --font-ja-serif: 'Noto Serif JP', serif;
     --font-ja-sans: 'Noto Sans JP', sans-serif;
-    --font-catch: 'Shippori Mincho', serif;
+    --font-catch: 'Noto Serif JP', serif;
     --font-en-serif: 'Cormorant Garamond', serif;
-    --font-en-sans: 'Inter', sans-serif;
-    --font-label: 'Montserrat', sans-serif;
+    --font-en-sans: 'Noto Sans JP', sans-serif;
+    --font-label: 'Noto Sans JP', sans-serif;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -36,7 +36,7 @@
     --spacing-xxl: 8rem;
 
     /* Layout */
-    --container-max: 1200px;
+    --container-max: 1120px;
     --header-height: 80px;
 
     /* Transitions */
@@ -70,29 +70,7 @@ body {
 
 /* Subtle geometric grid — very light on white */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 59px,
-            rgba(13, 28, 56, 0.03) 59px,
-            rgba(13, 28, 56, 0.03) 60px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 59px,
-            rgba(13, 28, 56, 0.03) 59px,
-            rgba(13, 28, 56, 0.03) 60px
-        );
-    pointer-events: none;
-    z-index: 0;
+    content: none;
 }
 
 img {
@@ -129,15 +107,13 @@ ul {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: rgba(250, 250, 250, 0.96);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.97);
     border-bottom: 1px solid var(--color-border-light);
     z-index: 1000;
-    transition: var(--transition-smooth);
 }
 
 .header.scrolled {
-    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.1);
+    box-shadow: none;
 }
 
 .nav {
@@ -179,7 +155,7 @@ ul {
 
 .nav-menu {
     display: flex;
-    gap: var(--spacing-lg);
+    gap: clamp(1.2rem, 2.6vw, 2.5rem);
 }
 
 .nav-menu a {
@@ -252,67 +228,63 @@ ul {
    ======================================== */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 760px;
+    min-height: max(760px, 100svh);
     display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden;
+    background: #FFFFFF;
+    padding: calc(var(--header-height) + 6rem) max(2rem, calc((100vw - 1056px) / 2)) 9rem;
 }
 
 .hero-visual {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    inset: var(--header-height) 0 0 42%;
+    pointer-events: none;
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.45;
-    filter: grayscale(40%);
+    object-position: center;
+    opacity: 0.2;
+    filter: grayscale(100%);
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-        rgba(12, 28, 56, 0.45) 0%,
-        rgba(10, 22, 40, 0.78) 100%);
+    inset: 0;
+    background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.75) 22%, rgba(237,244,247,0.2) 100%),
+        linear-gradient(0deg, #FFFFFF, transparent 35%);
 }
 
 .hero-content {
     position: relative;
-    z-index: 10;
-    text-align: center;
-    padding: var(--spacing-md);
+    z-index: 1;
+    width: 100%;
+    text-align: left;
     animation: fadeInUp 1.2s ease-out;
 }
 
-/* Gold accent line below hero content */
+/* Muted gold accent line below hero content */
 .hero-content::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 64px;
     height: 1px;
-    background: var(--color-accent);
-    margin: var(--spacing-md) auto 0;
+    background: #B8A478;
+    margin-top: 3rem;
 }
 
 .hero-title {
     font-family: var(--font-catch);
-    font-size: clamp(1.75rem, 4.4vw, 3.8rem);
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
-    margin-bottom: var(--spacing-md);
-    color: #FFFFFF;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 0.11em;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+    color: var(--color-text-primary);
 }
 
 /* フレーズ単位でのみ改行させる（狭い画面で語中改行を防ぐ） */
@@ -326,42 +298,6 @@ ul {
     letter-spacing: 0.04em;
 }
 
-/* ----- トピアくん（キャラクター） ----- */
-.topia-hero {
-    position: absolute;
-    right: clamp(1rem, 5vw, 5rem);
-    bottom: clamp(1.5rem, 6vh, 4rem);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    animation: fadeIn 1.5s ease-out 0.8s both;
-}
-
-.topia-hero-img {
-    width: clamp(84px, 9vw, 140px);
-    height: auto;
-    filter: drop-shadow(0 0 18px rgba(249, 168, 80, 0.35));
-    animation: topiaFloat 4.5s ease-in-out infinite;
-}
-
-.topia-hero-name {
-    font-family: var(--font-ja-serif);
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: var(--color-accent);
-}
-
-@keyframes topiaFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(-2deg);
-    }
-    50% {
-        transform: translateY(-8px) rotate(2deg);
-    }
-}
-
 .hero-subtitle-en {
     font-family: var(--font-en-serif);
     font-size: clamp(1.1rem, 2.2vw, 1.6rem);
@@ -373,11 +309,11 @@ ul {
 
 .hero-subtitle-en-small {
     font-family: var(--font-en-serif);
-    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 0.08em;
-    color: rgba(232, 232, 232, 0.75);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
 }
 
 .scroll-indicator {
@@ -412,8 +348,9 @@ ul {
    Section Styles
    ======================================== */
 .section {
-    padding: var(--spacing-xxl) 0;
+    padding: clamp(5rem, 9vw, 9rem) 0;
     position: relative;
+    scroll-margin-top: var(--header-height);
 }
 
 .section-header {
@@ -421,7 +358,7 @@ ul {
     margin-bottom: var(--spacing-xl);
 }
 
-/* Gold divider line below section labels */
+/* Blue divider line below section labels */
 .section-header::after {
     content: '';
     display: block;
@@ -433,9 +370,10 @@ ul {
 
 .section-title {
     font-family: var(--font-ja-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.14em;
     margin-bottom: var(--spacing-xs);
     color: var(--color-text-primary);
 }
@@ -468,7 +406,7 @@ ul {
 .concept-block {
     position: relative;
     padding-left: var(--spacing-lg);
-    border-left: 1px solid var(--color-border-gold);
+    border-left: 1px solid var(--color-border-blue);
     opacity: 0;
     transform: translateY(30px);
     transition: var(--transition-smooth);
@@ -515,34 +453,16 @@ ul {
 }
 
 /* ========================================
-   Stance Section — ディープネイビー（ページ内で一度だけ声色が変わる場所）
+   Stance Section — HILUCOブルー（ページ内で一度だけ声色が変わる場所）
    ======================================== */
 .stance-section {
     background: var(--color-bg-dark);
     overflow: hidden;
 }
 
-/* Subtle gold grid, as on the dark banners */
+/* Decorative grid (disabled), as on the dark banners */
 .stance-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        );
-    pointer-events: none;
+    content: none;
 }
 
 .stance-section .container {
@@ -586,9 +506,9 @@ ul {
 }
 
 .stance-hold {
-    color: var(--color-accent);
+    color: #FFFFFF;
     padding-left: var(--spacing-md);
-    border-left: 1px solid rgba(196, 162, 101, 0.4);
+    border-left: 1px solid rgba(255,255,255,0.45);
 }
 
 @media (max-width: 768px) {
@@ -601,7 +521,7 @@ ul {
         gap: var(--spacing-xs);
     }
 
-    /* 対句は縦に重ね、「しかし」の側だけを金の罫で受ける */
+    /* 対句は縦に重ね、「しかし」の側だけを白い罫で受ける */
     .stance-affirm {
         text-align: left;
     }
@@ -642,11 +562,11 @@ ul {
 }
 
 .companion-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border-light);
-    border-top: 1px solid var(--color-border-gold);
-    padding: var(--spacing-md);
-    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--color-border-blue);
+    padding: var(--spacing-md) 0;
+    box-shadow: none;
 }
 
 .companion-title {
@@ -674,7 +594,7 @@ ul {
     max-width: 800px;
     margin: var(--spacing-xl) auto 0;
     padding-top: var(--spacing-md);
-    border-top: 1px solid var(--color-border-gold);
+    border-top: 1px solid var(--color-border-blue);
     text-align: center;
 }
 
@@ -734,12 +654,12 @@ ul {
 }
 
 .structure-diagram {
-    max-width: 620px;
+    max-width: 660px;
     margin: 0 auto var(--spacing-lg);
-    padding: var(--spacing-md);
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
+    padding: var(--spacing-sm);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .structure-svg {
@@ -789,7 +709,7 @@ ul {
 
 .structure-def {
     padding-left: var(--spacing-md);
-    border-left: 1px solid var(--color-border-gold);
+    border-left: 1px solid var(--color-border-blue);
 }
 
 .structure-def-title {
@@ -845,20 +765,20 @@ ul {
 
 .pillars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-md);
     margin-top: var(--spacing-xl);
 }
 
 .pillar-card {
-    background: var(--color-bg-card);
+    background: transparent;
+    border: 0;
     border-radius: 0;
     overflow: hidden;
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 2px 20px rgba(13, 28, 56, 0.07);
+    box-shadow: none;
     transition: var(--transition-smooth);
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
 }
 
 .pillar-card.visible {
@@ -867,14 +787,12 @@ ul {
 }
 
 .pillar-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(13, 28, 56, 0.14);
-    border-color: var(--color-border-gold);
+    box-shadow: none;
 }
 
 .pillar-image-wrapper {
     width: 100%;
-    height: 280px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     position: relative;
 }
@@ -891,7 +809,7 @@ ul {
 }
 
 .pillar-content {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md) 0 0;
 }
 
 .pillar-title-en {
@@ -961,10 +879,10 @@ ul {
 }
 
 .physical-thinker-body {
-    background: var(--color-bg-card);
-    padding: var(--spacing-xl);
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 2px 24px rgba(13, 28, 56, 0.08);
+    background: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
 }
 
 .physical-thinker-text {
@@ -985,21 +903,24 @@ ul {
 .physical-thinker-link {
     display: inline-flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background: transparent;
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-accent);
+    max-width: 100%;
+    padding: 1rem 0;
+    color: var(--color-accent);
+    border: 0;
+    border-bottom: 1px solid var(--color-accent);
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
-    letter-spacing: 0.1em;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
     transition: var(--transition-fast);
 }
 
 .physical-thinker-link:hover {
-    background: var(--color-accent);
-    color: #FFFFFF;
-    transform: translateY(-2px);
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    background: transparent;
 }
 
 .physical-thinker-link .link-arrow {
@@ -1013,7 +934,7 @@ ul {
 }
 
 /* ========================================
-   Newsletter Banner — ディープネイビー
+   Newsletter Banner — HILUCOブルー
    ======================================== */
 .newsletter-banner {
     padding: var(--spacing-lg) 0;
@@ -1022,27 +943,9 @@ ul {
     overflow: hidden;
 }
 
-/* Subtle gold grid on dark banners */
+/* Decorative grid (disabled) on dark banners */
 .newsletter-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        );
-    pointer-events: none;
+    content: none;
 }
 
 .newsletter-banner--pre-profile {
@@ -1051,13 +954,12 @@ ul {
 
 .newsletter-banner-inner {
     position: relative;
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg) var(--spacing-xl);
-    border: 1px solid rgba(196, 162, 101, 0.3);
+    padding: var(--spacing-lg) 0;
+    border: 0;
 }
 
 .newsletter-banner-label {
@@ -1074,7 +976,7 @@ ul {
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 500;
     letter-spacing: 0.1em;
-    color: #FFFFFF;
+    color: var(--color-text-primary);
     margin-bottom: var(--spacing-sm);
     line-height: 1.6;
 }
@@ -1083,7 +985,7 @@ ul {
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
     line-height: 1.9;
-    color: var(--color-text-on-dark);
+    color: var(--color-text-body);
     letter-spacing: 0.04em;
 }
 
@@ -1094,23 +996,23 @@ ul {
 .newsletter-banner-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-lg);
-    background: transparent;
+    padding: 1.25rem 1.75rem;
+    background: var(--color-accent);
     color: #FFFFFF;
-    border: 1px solid rgba(196, 162, 101, 0.6);
+    border: 1px solid var(--color-accent);
     font-family: var(--font-ja-sans);
     font-size: 0.95rem;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
+    line-height: 1.8;
+    letter-spacing: 0.04em;
     transition: var(--transition-fast);
 }
 
 .newsletter-banner-btn:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-bg-dark);
-    transform: translateY(-2px);
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: #FFFFFF;
 }
 
 .newsletter-banner-btn .link-arrow {
@@ -1181,10 +1083,11 @@ ul {
 }
 
 .profile-info {
-    background: var(--color-bg-card);
-    padding: var(--spacing-xl);
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 4px 30px rgba(13, 28, 56, 0.09);
+    background: transparent;
+    padding: var(--spacing-lg) 0 0;
+    border: 0;
+    border-top: 1px solid var(--color-border-light);
+    box-shadow: none;
 }
 
 .profile-label {
@@ -1281,38 +1184,19 @@ ul {
 }
 
 /* ========================================
-   Footer — ディープネイビー
+   Footer — HILUCOブルー
    ======================================== */
 .footer {
-    background: var(--color-bg-dark);
-    color: var(--color-text-on-dark);
+    background: var(--color-bg-light-blue);
+    color: var(--color-text-body);
     padding: var(--spacing-xl) 0 var(--spacing-lg);
-    border-top: 1px solid rgba(196, 162, 101, 0.3);
+    border-top: 1px solid var(--color-border-light);
     position: relative;
-    overflow: hidden;
 }
 
-/* Gold grid on footer */
+/* Decorative grid (disabled) on footer */
 .footer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 59px,
-            rgba(196, 162, 101, 0.05) 59px,
-            rgba(196, 162, 101, 0.05) 60px
-        );
-    pointer-events: none;
+    content: none;
 }
 
 .footer-content {
@@ -1327,10 +1211,9 @@ ul {
 
 .footer-topia {
     display: block;
-    width: 64px;
+    width: 80px;
     height: auto;
-    margin: 0 auto var(--spacing-sm);
-    filter: drop-shadow(0 0 12px rgba(249, 168, 80, 0.3));
+    margin: 0 auto var(--spacing-md);
 }
 
 .footer-title-ja {
@@ -1339,7 +1222,7 @@ ul {
     font-weight: 400;
     letter-spacing: 0.15em;
     margin-bottom: var(--spacing-xs);
-    color: #FFFFFF;
+    color: var(--color-text-primary);
 }
 
 .footer-title-en {
@@ -1356,7 +1239,7 @@ ul {
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: rgba(232, 232, 232, 0.5);
+    color: var(--color-text-muted);
     margin-top: var(--spacing-md);
 }
 
@@ -1381,7 +1264,7 @@ ul {
     font-family: var(--font-label);
     font-size: 0.7rem;
     letter-spacing: 0.1em;
-    color: rgba(232, 232, 232, 0.4);
+    color: var(--color-text-muted);
     margin-top: var(--spacing-xs);
 }
 
@@ -1663,4 +1546,54 @@ ul {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+
+/* Shared HILUCO details and accessible interaction states. */
+.hero-eyebrow {
+    margin-bottom: 2rem;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    color: var(--color-accent);
+}
+.stance-section .section-title-en { color: #FFFFFF; }
+.stance-section .section-header::after { background: rgba(255,255,255,0.6); }
+.newsletter-banner-desc { color: var(--color-text-body); }
+.link-arrow { flex-shrink: 0; }
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 5px;
+}
+@media (max-width: 1100px) {
+    .newsletter-banner-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 768px) {
+    .hero {
+        min-height: max(680px, 92svh);
+        padding: calc(var(--header-height) + 4rem) var(--spacing-md) 7rem;
+    }
+    .hero-visual { left: 20%; }
+    .hero-image { opacity: 0.14; }
+    .hero-title { font-size: clamp(1.6rem, 5.8vw, 2.6rem); letter-spacing: 0.08em; }
+    .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; }
+    .hero-subtitle-en { font-size: 1.2rem; letter-spacing: 0.02em; }
+    .hero-subtitle-en-small { font-size: 1rem; }
+    .pillars-grid { grid-template-columns: 1fr; gap: var(--spacing-lg); }
+    .pillar-image-wrapper { height: auto; aspect-ratio: 16 / 10; }
+    .pillar-content { padding: var(--spacing-md) 0 0; }
+    .physical-thinker-body { padding: 0; }
+    .physical-thinker-link { padding: 1rem 0; }
+    .profile-info { padding: var(--spacing-lg) 0 0; }
+    .newsletter-banner-inner { padding: var(--spacing-md) 0; }
+    .newsletter-banner-cta { width: 100%; }
+    .newsletter-banner-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .fade-in, .concept-block, .pillar-card { opacity: 1; transform: none; }
 }

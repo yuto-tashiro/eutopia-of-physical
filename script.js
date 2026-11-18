@@ -71,9 +71,9 @@ window.addEventListener('scroll', () => {
 
     // Add shadow on scroll
     if (currentScroll > 50) {
-        header.style.boxShadow = '0 2px 20px rgba(44, 44, 44, 0.08)';
+        header.classList.add('scrolled');
     } else {
-        header.style.boxShadow = 'none';
+        header.classList.remove('scrolled');
     }
 
     lastScroll = currentScroll;
@@ -84,7 +84,7 @@ window.addEventListener('scroll', () => {
 // ========================================
 const heroImage = document.querySelector('.hero-image');
 
-if (heroImage) {
+if (heroImage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const parallaxSpeed = 0.5;
@@ -142,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set language and update UI
     function setLanguage(lang) {
+        document.documentElement.lang = lang;
+
         // Update button states
         langButtons.forEach(btn => {
             if (btn.dataset.lang === lang) {
@@ -188,4 +190,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize on page load
     initLanguage();
 });
+
 
